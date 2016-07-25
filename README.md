@@ -1,14 +1,14 @@
 # Pandora
-<b>Pandora.js</b> processes images using HTML5 canvas and applies filters like Instagram, Facebook or other apps which allow to customize your images. Pandora takes a queue list and processes the source image applying effects layer over layer. That means you can use multiple effects on your images and obtain new effects time by time!
+<b>Pandora.js</b> processes images using HTML5 canvas and applies filters like Instagram, Facebook or other apps which allow image customization. Pandora takes a queue list and processes the source image applying effects layer over layer. That means you can use multiple effects on your images and obtain new effects time by time!
 ##Let's start to use Pandora
-The concept behind Pandora's structure is permitting users to apply their filters in the less steps possible :
+The concept behind Pandora's structure is permitting users to apply filters in the less steps possible :
 ###1. Include
 First of all you need to include <b>pandora.js</b> on your .html page :
 ```html
 <script type="text/javascript" src="pandora.js"><script>
 ```
 ###2. Set up targets
-Pandora requires 3 attribute applied on ```<img> ```
+Pandora requires 3 attribute applied <b>inline</b> on ```<img> ```
 - `pandora` : Pandora's class target
 - `src` : Contains the path of the image target
 - `data-queue` : Contains the queue of <b>Pandora's effects</b> you want to apply
