@@ -12,7 +12,6 @@ Pandora requires 3 attribute applied <b>inline</b> on ```<img> ```
 - `pandora` : Pandora's class target
 - `src` : Contains the path of the image target
 - `data-queue` : Contains the queue of <b>Pandora's effects</b> you want to apply
-<br><br>Pandora will provide to create an HTML5 canvas inside each Pandora's target.
 
  Let's give an example :
 ```html
@@ -21,6 +20,7 @@ Pandora requires 3 attribute applied <b>inline</b> on ```<img> ```
 ...
 <img src="myImageX.png" data-queue="bwRed();">
 ```
+Pandora creates off screen canvas and returns a new ```<img>``` with BASE64 url from it which replace the initial one.
 
 ###3. Start Pandora
 Start Pandora creating a Pandora object in the end of body :
@@ -29,6 +29,9 @@ Start Pandora creating a Pandora object in the end of body :
   var PandoraBox = new Pandora();
 </script>
 ```
+###Fallback
+Pandora considers browsers who doesn't support canvas and provides a fallback. If a browser has some issue with Pandora all your initial images will remain rendered on the screen without blank results.
+
 ## Pandora Effects
 Pandora offers many effects which you can apply over your images
 ### Adjustments
