@@ -54,7 +54,7 @@ Effect | Parameters | Release | Description
 `fill()` | - `blendMode` : Blend mode (`source-over`, `source-in`, `source-out`, `source-atop`, `destination-over`, `destination-in`, `destination-out`, `destination-atop`, `lighter`, `copy`, `xor`, `multiply`, `screen`, `overlay`, `darken`, `lighten`, `color-dodge`, `color-burn`, `hard-light`, `soft-light`, `difference`, `exclusion`, `hue`, `saturation`, `color`, `luminosity`)<br><br> - `fillingType` : Filling type (`color` or `gradient`)<br> - `fillingValue` : Filling value<br> - `alpha` : Opacity value| 1.0 | Color or gradient layer with blending
 
 ###Presets
-A set of compounds effects ready to use without any customization
+A set of compounds effects ready to use without requiring any customization
 
 Preset | Release | Description
 --- | --- | --- |
