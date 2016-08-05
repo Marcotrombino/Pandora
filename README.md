@@ -47,7 +47,7 @@ Preset | Release | Description
 `vintage()`| 1.0 | Vintage preset
 `vintage2()`| 1.0 | Vintage preset
 `sprite()`| 1.0 | High contrast and colorfull preset
-`colorfull()`| 1.0 | Colorfull preset perfect
+`colorfull()`| 1.0 | Colorfull preset
 `fluoNight()`| 1.0 | Colorfull preset perfect for night image (party etc)
 
 ###Effects
