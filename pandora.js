@@ -497,88 +497,6 @@
         this.contrast(canvas, ctx, [parseInt(diff)]);
     };
 
-    // Brightness ADJUSTMENT  0 -
-    Pandora.prototype.brightness = function(canvas, ctx, params) {
-        var adjustment = parseInt(params[0]);
-        var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        var px = imgData.data;
-
-        for (var i=0; i<px.length; i+=4) {
-            px[i] = this.trucate(px[i] + adjustment);
-            px[i+1] = this.trucate(px[i+1] + adjustment);
-            px[i+2] = this.trucate(px[i+2] + adjustment);
-        }
-        ctx.putImageData(imgData, 0, 0);
-    };
-
-    // Contrast ADJUSTMENT 0 -
-    Pandora.prototype.contrast = function(canvas, ctx, params) {
-        var contrast = parseInt(params[0]);
-        var factor = (259 * (contrast + 255)) / (255 * (259 - contrast));
-
-        var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        var px = imgData.data;
-
-        for (var i = 0; i < px.length; i += 4) {
-          px[i] = factor * (px[i] - 128) + 128;
-          px[i+1] = factor * (px[i+1] - 128) + 128;
-          px[i+2] = factor * (px[i+2] - 128) + 128;
-        }
-        ctx.putImageData(imgData, 0, 0);
-    };
-
-    // Color balance ADJUSTMENT
-    Pandora.prototype.colorBalance = function(canvas, ctx, params) {
-        var R_ADJ = parseInt(params[0]);
-        var G_ADJ = parseInt(params[1]);
-        var B_ADJ = parseInt(params[2]);
-
-        var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        var px = imgData.data;
-
-        for (var i=0; i<px.length; i+=4) {
-            px[i] = this.trucate(px[i] + R_ADJ);
-            px[i+1] = this.trucate(px[i+1] + G_ADJ);
-            px[i+2] = this.trucate(px[i+2] + B_ADJ);
-        }
-        ctx.putImageData(imgData, 0, 0);
-    };
-
-    // Exposure ADJUSTMENT  0-100
-    Pandora.prototype.exposure = function(canvas, ctx, params) {
-        var value = parseFloat(params[0]) / 100;
-        if(value < 0) value = 0;
-        else if(value > 1) value = 1;
-        var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        var px = imgData.data;
-
-        for (var i = 0; i < px.length; i += 4) {
-          px[i] = Math.pow(px[i], (1 + value));
-          px[i+1] = Math.pow(px[i+1], (1 + value));
-          px[i+2] = Math.pow(px[i+2], (1 + value));
-        }
-        ctx.putImageData(imgData, 0, 0);
-    };
-
-    // Brightness and Contrast Auto ADJUSTMENT
-    Pandora.prototype.autoAdj = function(canvas, ctx, params) {
-        var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        var px = imgData.data;
-        var lum = 0;
-        for(var i = 0; i < px.length; i += 4) {
-          lum += (px[i] + px[i+1] + px[i+2])/3;
-        }
-        var diff = Math.round(127 - (lum / (px.length/4)));
-
-        if(diff < -45)                      diff -= (diff * 70) / 100;
-        else if(diff >= -45 && diff < -20)   diff = -10;
-        else if(diff >= -20 && diff <= 10)  diff = 0;
-        else if(diff > 45)                  diff -= (diff * 40) / 100;
-
-        this.brightness(canvas, ctx, [parseInt(diff)]);
-        this.contrast(canvas, ctx, [parseInt(diff)]);
-    };
-
     // Selective color correction ADJUSTMENT BETA
     Pandora.prototype.selectiveCorrection = function(canvas, ctx, params) {
         var channel = params[0];
@@ -604,7 +522,6 @@
           if(channel == "C" && HUE > 150 && HUE <= 210)    check = true;
           if(channel == "B" && HUE > 210 && HUE <= 270)    check = true;
           if(channel == "M" && HUE > 270 && HUE <= 330)    check = true;
-          //if(channel == "N" && (HSV.v > 0.1 && HSV.v < 0.9))    check = true;
 
           if(check) {
             RGB = this.CMYKtoRGB(CMYK.c + c, CMYK.m + m, CMYK.y + y, CMYK.k + k);
@@ -640,11 +557,9 @@
       var fillingValue = params[2];
       var alpha = params[3];
 
-      // set blending mode
       ctx.globalCompositeOperation = blendMode;
       ctx.beginPath();
 
-      // draw rect over all canvas
       ctx.rect(0, 0, canvas.width, canvas.height);
 
       if(fillingType=="gradient")
@@ -829,15 +744,6 @@
     };
 
     Pandora.prototype.colorfull = function(canvas, ctx, params) {
-      this.selectiveCorrection(canvas, ctx, ['R', '0','8','20','0']);
-      this.selectiveCorrection(canvas, ctx, ['G', '20','-20','20','0']);
-      this.selectiveCorrection(canvas, ctx, ['Y', '10','0','10','0']);
-      this.selectiveCorrection(canvas, ctx, ['C', '20','0','-20','0']);
-      this.selectiveCorrection(canvas, ctx, ['B', '20','20','0','0']);
-      this.selectiveCorrection(canvas, ctx, ['M', '20','20','0','0']);
-    };
-
-    Pandora.prototype.newpreset = function(canvas, ctx, params) {
       this.selectiveCorrection(canvas, ctx, ['R', '0','8','20','0']);
       this.selectiveCorrection(canvas, ctx, ['G', '20','-20','20','0']);
       this.selectiveCorrection(canvas, ctx, ['Y', '10','0','10','0']);
