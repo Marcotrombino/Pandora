@@ -1,5 +1,6 @@
 # Pandora
 <b>Pandora</b> processes images using HTML5 canvas and applies filters like Instagram, Facebook or other apps which allow image customization. Pandora takes a queue list and processes the source image applying effects layer over layer. That means you can use multiple effects on your images and obtain new effects time by time!
+<p align="center"><img src="http://i.imgur.com/VaIwNzd.gif"><br><i>Low quality images due to GIF format</i></p>
 ##Let's start to use Pandora
 The concept behind Pandora's structure is permitting users to apply filters in the less steps possible :
 ###1. Include
@@ -18,7 +19,7 @@ Pandora requires 3 attributes applied <b>inline</b> on ```<img> ```
 <img src="myImage1.png" class="pandora" data-queue="colorfull();">
 <img src="myImage2.png" class="pandora" data-queue="bw();brightness(10);contrast(30);">
 ...
-<img src="myImageX.png" class="pandora" data-queue="bwRed();">
+<img src="myImageX.png" class="pandora" data-queue="colorBalance(40, 20, 20);">
 ```
 Pandora creates off screen canvas and returns a new ```<img>``` with BASE64 url from it which replace the initial one.
 
