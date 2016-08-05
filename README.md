@@ -10,8 +10,8 @@ First of all you need to include <b>pandora.js</b> on your .html page :
 ```
 ###2. Set up targets
 Pandora requires 3 attributes applied <b>inline</b> on ```<img> ```
-- `pandora` : Pandora's class target
 - `src` : Contains the path of the image target
+- `pandora` : Pandora's class target
 - `data-queue` : Contains the queue of <b>Pandora's effects</b> you want to apply
 
  Let's give an example :
