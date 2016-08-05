@@ -6,7 +6,7 @@ It requires just 3 steps :
 ###1. Include
 First of all you need to include <b>pandora.js</b> on your .html page :
 ```html
-<script type="text/javascript" src="pandora.js"><script>
+<script type="text/javascript" src="pandora.js"></script>
 ```
 ###2. Set up targets
 Pandora requires 3 attributes applied <b>inline</b> on ```<img> ```
