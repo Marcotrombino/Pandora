@@ -1,8 +1,8 @@
 # Pandora
-<b>Pandora</b> processes images using HTML5 canvas and applies filters like Instagram, Facebook or other apps which allow image customization. Pandora takes a queue list and processes the source image applying effects layer over layer. That means you can use multiple effects on your images and obtain new effects time by time!
+<b>Pandora</b> processes images using HTML5 canvas and applies filters like Instagram, Facebook or other apps which allow image customization. The script takes a queue list and processes the source image applying effects layer over layer. That means you can use multiple effects over your images and obtain new effects time by time!
 <p align="center"><img src="http://i.imgur.com/VaIwNzd.gif"><br><i>Low quality images due to GIF format</i></p>
 ##Let's start to use Pandora
-The concept behind Pandora's structure is permitting users to apply filters in the less steps possible :
+It requires just 3 steps :
 ###1. Include
 First of all you need to include <b>pandora.js</b> on your .html page :
 ```html
@@ -31,7 +31,7 @@ Start Pandora creating a Pandora object in the end of body :
 </script>
 ```
 ###HTML5 Support
-If a browser has some issue with Pandora all your initial images will remain rendered on the screen without blank results.
+If a browser has some issue with Pandora all your initial images will remain rendered on the screen without effects and <b>without blank screen</b>.
 
 ## Pandora Effects
 Pandora offers many effects which you can apply over your images
@@ -64,7 +64,7 @@ Effect | Parameters | Release | Description
 `fill()` | - `blendMode` : Blend mode (`source-over`, `source-in`, `source-out`, `source-atop`, `destination-over`, `destination-in`, `destination-out`, `destination-atop`, `lighter`, `copy`, `xor`, `multiply`, `screen`, `overlay`, `darken`, `lighten`, `color-dodge`, `color-burn`, `hard-light`, `soft-light`, `difference`, `exclusion`, `hue`, `saturation`, `color`, `luminosity`)<br><br> - `fillingType` : Filling type (`color` or `gradient`)<br> - `fillingValue` : Filling value<br> - `alpha` : Opacity value| 1.0 | Color or gradient layer with blending
 
 ### Adjustments
-A set of adjustment effects
+A set of adjustments
 
 Adjustment | Parameters | Release | Description  
 --- | --- | --- | ---
