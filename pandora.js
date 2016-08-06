@@ -93,7 +93,7 @@
                     var effect = this.sources[imgObj.index].queue[i].effect;
                     var params = this.sources[imgObj.index].queue[i].params;
                     if (typeof this[effect] == 'function') this[effect](canvas, ctx, params);
-                    else console.error(effect + "() effect doesn't exit.")
+                    else console.error(effect + "() effect doesn't exist.")
                     i++;
                 }.bind(this));
 
